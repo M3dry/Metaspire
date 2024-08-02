@@ -1,0 +1,25 @@
+cabal-version:      3.4
+name:               metaspire
+version:            0.1.0.0
+license:            AGPL-3.0-only
+license-file:       LICENSE
+author:             m3dry
+maintainer:         m3dry@tutamail.com
+category:           Game
+build-type:         Simple
+
+common warnings
+    ghc-options: -Wall -Wno-name-shadowing
+    default-language: GHC2021
+
+executable metaspire
+    import:           warnings
+    main-is:          Main.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:
+        , base
+        , h-raylib
+        , apecs
+        , p2p
+    hs-source-dirs:   app

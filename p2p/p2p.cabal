@@ -1,0 +1,40 @@
+cabal-version:      3.4
+name:               p2p
+version:            0.1.0.0
+license:            AGPL-3.0-only
+license-file:       LICENSE
+author:             m3dry
+maintainer:         m3dry@tutamail.com
+category:           Network
+build-type:         Simple
+
+common warnings
+    ghc-options: -Wall -Wno-name-shadowing
+    default-language: GHC2021
+
+library
+    import:           warnings
+    hs-source-dirs:   src
+    build-depends:
+        , base
+        , bytestring
+        , network-udp
+        , network
+    exposed-modules:
+        , P2P
+
+executable p2p-hole-puncher
+    import:           warnings
+    main-is:          Main.hs
+    hs-source-dirs:   app/hole-puncher
+    build-depends:
+        , base
+        , p2p
+
+executable p2p-client
+    import:           warnings
+    main-is:          Main.hs
+    hs-source-dirs:   app/client
+    build-depends:
+        , base
+        , p2p
